@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <mat-toolbar> <a class="navbar-brand mt-2 mt-lg-0" href="https://fleskconsulting.com/">
+            <img src="https://fleskconsulting.com/themes/demo/assets/images/img/Icon.svg" height="50" alt="MDB Logo"
+                loading="lazy" />
+        </a> </mat-toolbar>
+
+    <mat-sidenav-container>
+        <mat-sidenav mode="side" opened="true" class="mat-elevation-z8"  #sidenav ="matSidenav">
+            <app-navbar-user></app-navbar-user>
+        </mat-sidenav>
+        <mat-sidenav-content>
+           <div class=" content mat-elevation-z8">
+                <form #formhome="ngForm" [formGroup]="HomeForm" class="form">
+                    <div class="titre"><i class="fa fa-rocket"></i>   
+                        <span>Application generation</span></div>
+                    <div class="response">
+                        <ngb-alert *ngIf="this.alert != ''" [dismissible]="false">
+                            {{this.alert}}
+                        </ngb-alert>
+                    </div>
+                    <label>Framework BackEnd : <span style="color: red;">*</span></label>
+                    <mat-form-field class="champs framework" appearance="fill">
+                        <mat-label>Choose Framework BackEnd</mat-label>
+                        <mat-select formControlName="frameworkBack">
+                            <mat-option *ngFor="let framework of framework_back"
+                              [value]="framework.name">{{framework.name}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <label >Version framework Backend :<span style="color: red;">*</span></label>
+                    <mat-form-field class="champs versions" appearance="fill">
+                        <mat-label>Choose version framework Backend</mat-label>
+                        <mat-select (click)="getVersionsListByFrameworkBack()" formControlName="versionBack">
+                            <mat-option *ngFor="let version of versionsListBack"
+                                [value]="version.name">{{version.name}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <label>Framework FrontEnd : <span style="color: red;">*</span></label>
+                    <mat-form-field class="champs framework" appearance="fill">
+                        <mat-label>Choose Framework FrontEnd</mat-label>
+                        <mat-select formControlName="frameworkFront">
+                            <mat-option *ngFor="let framework of framework_front"
+                              [value]="framework.name">{{framework.name}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <label >Version framework Frontend :<span style="color: red;">*</span></label>
+                    <mat-form-field class="champs versions" appearance="fill">
+                        <mat-label>Choose version framework Frontend</mat-label>
+                        <mat-select (click)="getVersionsListByFramework()" formControlName="versionFront">
+                            <mat-option *ngFor="let version of versionsList"
+                                [value]="version.name">{{version.name}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <label >Container :<span style="color: red;">*</span></label>
+                    <mat-form-field class="champs versions" appearance="fill">
+                        <mat-label>Choose container</mat-label>
+                        <mat-select>
+                            <mat-option>Local server</mat-option>
+                            <mat-option>Docker</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <div class=" example-button-row btns">
+                        <button (click)="resetForm()" class="reset" type="submit" mat-raised-button color="primary"
+                            href="#">Reset</button>&nbsp;&nbsp;
+                        <button (click)="submitForm()" class="generate" type="submit"
+                            mat-raised-button color="primary" href="#">Generate</button>
+                    </div>
+
+                </form>
+            </div>
+        </mat-sidenav-content>
+
+    </mat-sidenav-container>
+    <div class="footer">
+        <app-footer></app-footer>
+    </div>
+</body>
+
+</html>

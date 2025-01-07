@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <mat-toolbar> <a class="navbar-brand mt-2 mt-lg-0" href="https://fleskconsulting.com/">
+        <img src="https://fleskconsulting.com/themes/demo/assets/images/img/Icon.svg" height="50" alt="MDB Logo"
+            loading="lazy" />
+    </a> </mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav mode="side" opened="true" class="mat-elevation-z8"  #sidenav ="matSidenav">
+        <app-navbar-user></app-navbar-user>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class=" content mat-elevation-z8">
+            <div class="edit_settings"><span>Edit settings project</span><br></div>
+            <div class="lien"><span><a href="user/project">Projects</a>>{{nameProject}}</span></div>
+            <mat-divider></mat-divider>
+            
+            <form #formhome="ngForm" [formGroup]="formHome" class="form">
+                <font face="Comic Sans MS" color="#0000DD" size=4>
+
+                    Impact du tag FONT sur les polices de caractères.
+                 
+                 </font>
+                <!-- <mat-form-field>
+                    <mat-label>description du projet </mat-label>
+                    <textarea formControlName="content" matInput></textarea>
+                  </mat-form-field> -->
+                  <angular-editor class="edit" formControlName="content" [placeholder]="'Enter text here...'"  [config]="editorConfig"></angular-editor>
+         
+                  <div class=" example-button-row btns">         
+                <button class="reset" type="submit" mat-raised-button color="primary"
+                  href="#">Reset</button>&nbsp;&nbsp;
+              <button  class="generate" type="submit" (click)="generatePdf()" mat-raised-button color="primary" href="#">Generate pdf</button>
+          </div>   
+
+                
+            </form>
+        </div>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>
+    <div class="footer">
+        <app-footer></app-footer>
+    </div>
+</body>
+
+</html>

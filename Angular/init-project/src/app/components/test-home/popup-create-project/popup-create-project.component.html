@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <div class="header">
+    <h4>Project creation</h4>
+    <i (click)="closeDialog()" class="fa-solid fa-xmark"></i>
+  </div >
+  <mat-divider></mat-divider>
+  <mat-divider></mat-divider>
+      <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+
+        <mat-step [stepControl]="popupForm">
+          <form [formGroup]="popupForm">
+            <ng-template matStepLabel>Step 1: Automated project creation</ng-template>
+            <div class="champs">
+              <label>Project name: </label>
+              <mat-form-field appearance="fill">
+                <mat-label>Project Name</mat-label>
+                <input type="text" matInput formControlName="projectName" required minlength="4">
+              </mat-form-field>
+            </div>
+            <div class="hint" *ngIf="this.hint != ''">{{this.hint}}</div>
+            <div class="response" *ngIf="this.response != ''">{{this.response}}</div>
+            <div class="btns">
+              <button class="next" type="submit"  mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="popupForm">
+          <form [formGroup]="popupForm">
+            <ng-template matStepLabel>Step 2: Automated push in Gitlab</ng-template>
+            <div class="champs">
+              <label>Repository name: </label>
+              <mat-form-field appearance="fill">
+                <mat-label>Repository Name</mat-label>
+                <input type="text" matInput formControlName="repositoryName" required minlength="4">
+              </mat-form-field>
+            </div>
+            <div class="hint" *ngIf="this.hint != ''">{{this.hint}}</div>
+            <div class="response" *ngIf="this.response != ''">{{this.response}}</div>
+            <div class="btns">
+              <button class="next" type="submit"  mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+
+        <!-- <mat-step [stepControl]="popupForm">
+          <form [formGroup]="popupForm">
+            <ng-template matStepLabel>Step 2: Automated push in Gitlab</ng-template>
+            <div class="champs">
+              <label>Repository: </label>
+              <mat-form-field  appearance="fill">
+                <mat-label>Choose repository</mat-label>
+                <mat-select (click)="onclickRepo()" formControlName="repo" (selectionChange)="changeRepo($event.value)" required>
+                  <mat-option *ngFor="let repo of repositories" [value]="repo.name">{{repo.name}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="hint" *ngIf="this.hint != ''">{{this.hint}}</div>
+            <div class="response" *ngIf="this.response != ''">{{this.response}}</div>
+            <div class="btns">
+              <button class="next" type="submit"  mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step> -->
+
+
+        <mat-step>
+          <ng-template  matStepLabel>Done</ng-template>
+          <p>You are now done.</p>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper.reset()">Reset</button>
+            <button class="action"  (click)="generateProject()" type="submit" [disabled]="!popupForm.valid" mat-button>Generate</button>&nbsp;&nbsp;
+
+          </div>
+        </mat-step>
+      </mat-stepper>
+
+</body>
+</html>
+<ngx-spinner size="default" type="ball-spin-clockwise">
+  <p style="color: white">Please Wait. </p>
+</ngx-spinner>

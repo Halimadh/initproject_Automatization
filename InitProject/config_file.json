@@ -1,0 +1,20 @@
+﻿
+{
+  "frameworkBackend": {
+    "aspWebApi": {
+      "cmdCreateFolder": "/c mkdir ",
+      "cdFolder": " && cd ",
+      "createWebApi": " && dotnet new webapi -n webserver --framework "
+    }
+  },
+  "frameworkFrontend": {
+    "Angular": {
+      "CreateWebClient": " && ng new webclient --routing --version="
+    },
+    "ReactJS": {
+      "CreateWebClient": " && npx create-react-app webclient @",
+      "CreateWebClient1": " && npx create-react-app webclient --template react@"
+    }
+  }
+  
+}

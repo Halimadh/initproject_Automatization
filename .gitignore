@@ -1,0 +1,16 @@
+*.dll
+*.pdp
+*.cache
+InitProject.csproj.AssemblyReference.cache
+InitProject.csproj.CoreCompileInputs.cache
+InitProject.csproj.FileListAbsolute.txt
+InitProject.GeneratedMSBuildEditorConfig.editorconfig
+project.assets.json
+project.nuget.cache
+DataLayer.assets.cache
+DataLayer.csproj.AssemblyReference.cache
+DataLayer.csproj.CoreCompileInputs.cache
+DataLayer.csproj.FileListAbsolute.txt
+*/bin/*
+*/obj/*
+*/packages/*

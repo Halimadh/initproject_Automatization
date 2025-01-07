@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <mat-toolbar> <a class="navbar-brand mt-2 mt-lg-0" href="https://fleskconsulting.com/">
+            <img src="https://fleskconsulting.com/themes/demo/assets/images/img/Icon.svg" height="50" alt="MDB Logo"
+                loading="lazy" />
+        </a> </mat-toolbar>
+
+    <mat-sidenav-container>
+        <mat-sidenav mode="side" opened="true" class="mat-elevation-z8"  #sidenav ="matSidenav">
+            <app-navbar-user></app-navbar-user>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <div class=" content mat-elevation-z8">
+                <div class="header">
+                    
+                    <button class="addproject">
+                        <a  href="testHome">
+                            <i class="fa-solid fa-plus"></i>
+                            <span>Add project</span>
+                        </a>
+                    </button>
+                    <!-- <div class="search">
+                        <input type="text" class="searchbar" placeholder="search framework"/>
+                        <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+                    </div> -->
+    
+                </div>
+                <mat-divider></mat-divider>
+                <div >
+                    <mat-card>
+                        <mat-card-header>
+                            <mat-card-title>User information</mat-card-title>
+                            <div class="btns">
+                                <button class="modify">
+                                    <a (click)="onclickModify(this.username, this.id,this.name, this.email, this.role)">
+                                        <span>Modify</span>
+                                        <i class="fa-solid fa-user-pen"></i>
+                                    </a>
+                                </button> 
+                            </div>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <div class="infos">
+                               <div class=" champs username">
+                                    <label>Username: </label>
+                                    <mat-form-field class="input">
+                                        <input matInput  [ngModel]="username" >
+                                    </mat-form-field>
+                               </div> 
+        
+                               <div class=" champs name">
+                                    <label>name: </label>
+                                    <mat-form-field class="input">
+                                        <input matInput [ngModel]="name" >
+                                    </mat-form-field>
+                                </div> 
+        
+                                <div class=" champs email">
+                                    <label>email: </label>
+                                    <mat-form-field class="input">
+                                        <input matInput disabled [ngModel]="email" >
+                                    </mat-form-field>
+                                </div> 
+        
+                                <div class=" champs role">
+                                    <label>role: </label>
+                                    <mat-form-field class="input">
+                                        <input matInput disabled [ngModel]="role">
+                                    </mat-form-field>
+                                </div> 
+        
+                                
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+
+               
+                
+        </div>
+        <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+            <p style="color: white">Please Wait. </p>  
+        </ngx-spinner>
+
+        
+        </mat-sidenav-content>
+
+    </mat-sidenav-container>
+    <div class="footer">
+        <app-footer></app-footer>
+    </div>
+</body>
+
+</html>

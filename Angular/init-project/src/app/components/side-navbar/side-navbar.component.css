@@ -1,0 +1,66 @@
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+*{
+    background-color: #9e9e9e;
+    padding: 3px;
+    color: white;
+    text-align: left;
+    font-weight:normal;
+    font-size: 1.03em;
+    border:none;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    background: #0a0624;
+}
+
+mat-divider{
+    border-color: rgba(255, 255, 255, 0.505);
+    width:100%;
+    border-width:0.3vh;
+}
+
+.header{
+    margin-left:1.3rem;
+    margin-top: 1.3rem;
+    text-align:left;
+    padding:0;
+    border:none;
+    font-size:1.3em;
+}
+.content {
+    padding-top:3rem;
+    text-align:left;
+    position: relative;
+}
+
+.content .btn{
+padding-right:3rem;
+padding:1rem;
+}
+
+button{
+    background-color: transparent;
+}
+
+.content mat-icon {
+    display:flex;
+    justify-content: flex-end;
+    align-items:flex-end;
+}
+
+.content span, .content i, .content a{
+    background-color: transparent;
+    text-decoration: none;
+}
+
+.content .btn:hover{
+    background-color: #7e7a9a;
+    width:100%;
+}
+
+.logoutSection{
+    position: fixed;
+    bottom:0;
+    left:0;
+    font-size: 0.8em;
+}

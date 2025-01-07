@@ -1,0 +1,142 @@
+*{
+    padding:0;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Poppins', sans-serif;
+}
+
+mat-sidenav-container{
+    height:100%;
+}
+
+mat-sidenav{
+    background-color: #0a0624;
+    color: white;
+    text-align: left;
+    font-size: 1.03em;
+    width:200px;
+    border-radius:0 20px 20px 0;
+}
+
+mat-sidenav-content{
+    color: #424242;
+}
+.content .menu button {
+    display:none;
+    background: transparent;
+    margin-left:1.3rem;
+    margin-top: 1.3rem;
+    text-align:left;
+    color: #424242;
+    padding:0;
+    border:none;
+    font-size:1.3em;
+}   
+
+mat-sidenav-content .header{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.content .header h1{
+    margin:15px;
+    text-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+
+}
+
+.content .header .addUser{
+    text-align: center;
+    font-size:1.3em;
+    color: #424242;
+    padding:15px 50px;
+    border-radius: 50px;
+    background-color:#8bc34a;
+    text-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+    border:none;
+    margin-right:15px;
+    font-weight:400;
+}
+.content .header .addUser a{
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+}
+
+.content .header .addUser a:hover{
+    color: white;
+}
+
+.content .header span{
+    margin-left:8px;
+}
+
+mat-divider{
+    margin:10px;
+    border-width: 2px;
+}
+
+.content .search{
+    display: flex;
+    justify-content: flex-end;
+    align-items:center;
+}
+
+.content .searchbar{
+    border-radius: 15px;
+    margin-right:15px;
+    width:25em;
+    height: 2.1em;
+    border-color:  rgba(0, 0, 0, 0.3);
+    font-size:1em;
+}
+
+.content .searchbar i{
+    margin-right:1.1em;
+}
+
+.tabs {
+    margin-left:0.8em;
+}
+
+.tabs li a{
+    padding: 0.5em 0.9em;
+    color: #424242;
+    font-weight: 600;
+}
+
+.tabs li .nav-link.active{
+    font-weight: 700;
+}
+
+
+@media only screen and (max-width: 582px) {
+    .content .header h1{
+        font-size:1.2em;
+    }
+    .content .searchbar{
+        width: 15em;
+        font-size:0.8em;
+    }
+    .content .header .addUser{
+        font-size:0.8em;
+        padding:5px;
+
+    }
+  }
+
+  @media only screen and (min-width: 582px) and (max-width: 925px) {
+   
+    .content .header .addUser{
+        font-size:1em;
+        padding:8px;
+
+    }
+
+  }
+
+  @media only screen and (max-width:925px){
+    .content .menu button{
+        display:block;
+    }
+   
+  }

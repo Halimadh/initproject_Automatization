@@ -1,0 +1,123 @@
+*{
+    padding:0;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Poppins', sans-serif;
+}
+
+table{
+    border-collapse: collapse;
+    width: 95%;
+    text-align: center;
+    font-size: 1em;
+    margin:10px;
+    border:none;
+}
+
+table tr{
+    height:3em;
+    margin-bottom: 50px;
+}
+
+table tbody{
+    font-size:1.1em;
+}
+
+table tbody tr{
+    background-color: #f5f5f5;
+    border:none;
+    border: 1px solid #bdbdbd;
+}
+
+
+
+table tbody .management{
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+table tbody .management .btn button{
+    border:none;
+    margin-right:0.29em;
+    width:3em;
+    height:2em; 
+    font-size:1.2em;
+    margin-top:6px;
+}
+table tbody .management .btn .delete{
+    margin-right:1em;
+}
+table .btn .management button span{
+    margin-left: 8px;
+    color:white;
+    margin-right:8px;
+}
+
+table .btn .modify{
+    background-color: #cddc39;
+    color: white;
+}
+table .btn .delete{
+    background-color: #f44336;
+    color: white;
+}
+
+
+.pagination{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media only screen and (max-width: 582px) {
+    .content .header h1{
+        font-size:1.2em;
+    }
+    .content .searchbar{
+        width: 15em;
+        font-size:0.8em;
+    }
+    .content .header .addUser{
+        font-size:0.8em;
+        padding:5px;
+
+    }
+    table{
+        width:100%;
+        text-align: center;
+        font-size: 0.9em;
+    }
+
+    table tbody{
+        font-size:0.9em;
+    }
+    table .management .btn span{
+        font-size:  0.6em;
+    }
+   
+    .pagination li a{
+        font-size:0.8em;
+    }
+  }
+  @media only screen and (min-width: 582px) and (max-width: 925px) {
+    table tbody{
+        font-size:0.8em;
+    }
+
+    table .management button {
+        width:2em;
+    }
+
+    table tbody .btn span{
+        font-size:0.7em;
+    }
+
+    .content .header .addUser{
+        font-size:1em;
+        padding:8px;
+
+    }
+    .pagination li a{
+        font-size:0.8em;
+    }
+  }

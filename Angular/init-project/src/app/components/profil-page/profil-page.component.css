@@ -1,0 +1,145 @@
+mat-toolbar {
+    background: black;
+    color: white;
+ 
+} 
+
+mat-sidenav-container {
+    background-color: #131f2b;
+
+    .content {
+        background-color: white;
+    }
+}
+
+mat-sidenav {
+    margin: 16px;
+    width: 200px;
+    height:auto;
+    border-right: none;
+    background: black;
+    border-radius: 10px;
+  
+    text-align: center;
+    box-shadow: none;
+
+    
+}
+.content {
+  
+    height: calc(110vh - 98px);
+    border-radius: 10px;
+    margin: 16px;
+    margin-left: 32px;
+    font-family: 'Lato', sans-serif;
+   
+    /* color: lightgray; */
+   
+
+}
+.content .header{
+    display:flex;
+    justify-content: space-between;
+   }
+
+mat-sidenav-container {
+    /* height: calc(100vh - 65px); */
+    height:100%;
+}
+.addproject  {
+    background-color: rgb(124, 199, 11);
+    border: none;
+    border-radius: 10px;
+    /* color: white; */
+    font-weight: 400;
+    font-size: large;
+    height: 2.5em;
+    width: 9.5em;
+    margin: 10px 0px 10px 10px;
+
+}
+a{
+    outline: none;
+    text-decoration: none;
+    color: white;
+}
+
+.content .search{
+    display: flex;
+    justify-content: flex-end;
+    align-items:center;
+    margin-right: 10px;
+}
+
+.content .searchbar{
+    border-radius: 15px;
+    margin-right:15px;
+    width:25em;
+    height: 2.1em;
+    border-color:  rgba(0, 0, 0, 0.3);
+    font-size:1em;
+}
+
+.content .searchbar i{
+    margin-right:em;
+}
+
+table{
+    border-collapse: collapse;
+    width: 95%;
+    text-align: center;
+    font-size: 1em;
+    margin:10px;
+    border:none;
+}
+
+mat-card label{
+    padding-left:2em;
+    color: #424242;
+    text-align: left;
+    display: inline-block;
+    width: 250px;
+    font-weight: 600;
+}
+
+mat-card-actions .input{
+    color: black;
+    text-align: left;
+    width:23em;
+    display: inline-block;
+    max-width: 500px;
+}
+
+
+  @media only screen and (max-width:925px){
+    .content .menu button{
+        display:block;
+    }
+   
+  }
+  .btns button{
+    border:none;
+    width:7em;
+    height:2em;
+    font-size:1.2em;
+    margin-left:1em;
+}
+
+.btns button a{
+    text-decoration: none;
+}
+
+.btns button span{
+    margin-left: 8px;
+    color:white;
+    margin-right:8px;
+}
+
+.btns button i{
+    color:white;
+}
+
+.btns .modify{
+    background-color: #cddc39;
+    color: white;
+}

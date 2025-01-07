@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="login.component.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://fontawesome.com/releases/v5.15/css/all.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">    
+<title>Init - Login </title>
+
+</head>
+<body>
+
+
+    <div class="sidenavbar">
+        <div class="menu">
+            <div class="bar">
+                <i class="fa-sharp fa-solid fa-bars"></i>
+            </div>
+            <div class="logo">
+                <a class="navbar-brand mt-2 mt-lg-0" href="https://fleskconsulting.com/">
+                    <img
+                    src="https://fleskconsulting.com/themes/demo/assets/images/img/Icon.svg"
+                    height="60"
+                    alt="MDB Logo"
+                    loading="lazy"
+                    />    
+                </a>
+            </div>
+        </div>
+    <div class="links">
+        <a class="item fb" href="https://www.facebook.com/profile.php?id=100079340243858&notif_id=1650453815934789&notif_t=page_name_change_admin&ref=notif" target="_blank">
+            <i class="fa-brands fa-facebook"></i>
+        </a>
+        <a class="item in" href="https://www.linkedin.com/company/flesk-consulting/" target="_blank">
+            <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a class="item website" href="https://fleskconsulting.com/" target="_blank">
+            <i class="fa-solid fa-globe"></i>     
+        </a>
+    </div>
+    </div>
+            
+    <div class="loginBox">
+
+    <form #userlogin ="ngForm" [formGroup]="loginForm" (ngSubmit)="onClickLogin(userlogin.value)" class="login">
+
+        <fieldset class="form">
+            <div class="head">
+                <a class="navbar-brand mt-2 mt-lg-0" href="https://fleskconsulting.com/">
+                    <img
+                      src="https://fleskconsulting.com/themes/demo/assets/images/img/Icon.svg"
+                      height="50"
+                      alt="MDB Logo"
+                      loading="lazy"
+                    />
+                  </a>
+                <h3 ><span style="font-size: 38px; color:rgb(203, 74, 26);">Init</span>Project</h3>
+            </div>
+        <!--Login with an email/username and pwd (normal login)-->
+
+         <div class="coordonnees">
+            <label>Username :</label>
+            <mat-form-field class="username">
+                <mat-label>Username </mat-label>
+                <input required formControlName="username" type="text" name="username" id="username" matInput class="form-control">
+            </mat-form-field>
+
+            <label>Password :</label>
+            <mat-form-field class="pwd">
+                <mat-label>Password :</mat-label>
+                <input required formControlName="pwd"  [type]="inputType" id="pwd" matInput class="pwdInput">
+            </mat-form-field>
+            <mat-checkbox (click)="showPassword($event)"  class="example-margin">Show password</mat-checkbox>
+
+            <!--Remember me checkbox-->
+            <!--
+                
+            <div class="rememberMe">
+                <input
+                  mdbCheckbox
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault"
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                Remember Me
+                </label>
+            </div>
+
+            <div class="forgetPwd">
+                <a href="#">Forgot Password ?</a>
+            </div>
+         
+        -->
+
+        <div class="response">
+            <ngb-alert *ngIf="this.alert != ''" [dismissible]="false">
+               {{this.alert}}
+            </ngb-alert>
+        </div>
+
+            <div class=" example-button-row loginBtn">
+                <button type="submit" mat-raised-button color="primary" href ="#" >Log in</button>
+            </div>
+            
+        </div>
+    </fieldset>
+    </form>
+    </div>
+
+
+<div class="footer">
+<app-footer></app-footer>
+</div>
+</body>
+</html>
+<ngx-spinner size="default" type="ball-spin-clockwise">
+    <p style="color: white">Please Wait. </p>
+  </ngx-spinner>

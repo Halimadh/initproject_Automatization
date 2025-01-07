@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="header">
+        <a class="navbar-brand mt-2 mt-lg-0" href="https://fleskconsulting.com/">
+            <img
+              src="https://fleskconsulting.com/themes/demo/assets/images/img/Icon.svg"
+              height="50"
+              alt="MDB Logo"
+              loading="lazy"
+            />
+          </a>
+        <h3 ><span style="font-size: 38px; color:rgb(203, 74, 26);">Init</span>Project</h3>
+    </div> 
+
+    <mat-divider></mat-divider>
+
+    <div class="head">
+        <div class="title">
+            <h3>Update User {{this.user_username}}</h3>
+        </div> 
+        <div class="description">
+            <h5>Please update the needed fields. <span> * </span></h5>
+        </div> 
+    </div>
+    
+
+    <form #userUpdate ="ngForm" [formGroup]="UpdateForm">
+    <fieldset>
+        <mat-card>
+            <mat-card-header>
+              <mat-card-title></mat-card-title>
+            </mat-card-header>
+
+            <mat-card-actions>
+
+            <div class="container">
+                <div class=" champs name">
+                   <label>Name  </label>
+                        <mat-form-field class="input">
+                            <input formControlName="name" matInput>
+                        </mat-form-field>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="champs username">
+                    <label>Username  </label>
+                    <mat-form-field class="input">
+                        <input formControlName="username" matInput>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="champs email">
+                    <label>E-mail Adress</label>
+                        <mat-form-field class="input">
+                            <input formControlName="email" type="email"  matInput>                        
+                        </mat-form-field>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="champs role">
+                    <label>Role </label>
+                    <mat-form-field class="input" appearance="fill">
+                        <mat-label>{{this.user_role}}</mat-label>
+                        <mat-select formControlName="role" matNativeControl>
+                          <mat-option value="admin">Administrator</mat-option>
+                          <mat-option value="simple user">Simple User</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="updatePassword">
+
+                <div class="updatePasswordBtn">
+                    <button (click)="enableFields()" type="button" class="btn btn-tertiary cancel" mdbRipple>
+                        Update password
+                    </button>
+                </div>
+
+                <div *ngIf="fieldsEnabled==true" class="fields">
+            <div class="container">
+                <div class="champs pwd">
+                    <label>Password  </label>
+                    <mat-form-field class="input">
+                        <input formControlName="pwd" matInput [type]="inputType">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="champs pwd">
+                    <label>Confirm password  </label>
+                    <mat-form-field class="input">
+                        <input formControlName="confirmPwd" matInput [type]="inputType">
+                  </mat-form-field>
+               </div>
+            </div>
+            <mat-checkbox (click)="showPassword($event)"  class="example-margin" style="margin-left:25em;">Show password</mat-checkbox>
+        </div>
+    </div>
+        
+            </mat-card-actions>
+          </mat-card>          
+        <div class="btns">
+            <button type="button" class="btn btn-tertiary cancel" mdbRipple>
+                <a routerLink="/admin/consulter-users">
+                    Cancel
+                </a>
+            </button>
+            <button (click)="onclickUpdate()" type="button" class="btn btn-primary add">Update</button>
+        </div>
+        
+    </fieldset>
+    </form>
+    <ngx-spinner *ngIf="this.spinner" bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+        <p style="color: white">Please Wait. </p>  
+    </ngx-spinner>
+
+
+</body>
+</html>

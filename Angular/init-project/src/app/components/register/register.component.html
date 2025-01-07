@@ -1,0 +1,155 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+      <!-- Toggle button -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+  
+      <!-- Collapsible wrapper -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- Navbar brand -->
+        <a class="navbar-brand mt-2 mt-lg-0" href="https://fleskconsulting.com/">
+          <img
+            src="https://fleskconsulting.com/themes/demo/assets/images/img/Icon.svg"
+            height="50"
+            alt="MDB Logo"
+            loading="lazy"
+          />
+        </a>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Uers</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Admins</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Projects</a>
+          </li>
+        </ul>
+      </div>
+     
+      <div class="d-flex align-items-center">
+        <a class="text-reset me-3" href="#">
+          <i class="fas fa-shopping-cart"></i>
+        </a>
+      </div>
+      
+    </div>
+ 
+  </nav>
+  <!-- Navbar -->
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+      <div class="row justify-content-center align-items-center h-100">
+        <div class="col-12 col-lg-9 col-xl-7">
+          <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+            <div class="card-body p-4 p-md-5">
+              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Registration Form</h3>
+              <form [formGroup]="registerForm">
+  
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline"> 
+                      <label class="form-label" for="firstName">First Name</label>
+                      <input type="text" id="firstName" formControlName="firstName" class="form-control " />
+                      <div class="form-text text-danger" *ngIf="FirstName.errors?.['required']"> First name is required! </div>
+                      <div class="form-text  text-danger" *ngIf="FirstName.errors?.['minlenght'] && (FirstName.dirty || FirstName.touched)">Too short</div>
+                      <div class="form-text  text-danger" *ngIf="FirstName.errors?.['pattern'] && (FirstName.dirty || FirstName.touched)">Only Alphabets</div>
+                      
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <h6><label class="form-label" for="lastName">Last Name</label></h6>
+                      <input type="text" id="lastName" formControlName="lastName"class="form-control " />
+                      <div class="form-text  text-danger" *ngIf="LastName.errors?.['required'] && (LastName.dirty || LastName.touched)">Is required</div>
+                      <div class="form-text  text-danger" *ngIf="LastName.errors?.['minlenght'] && (LastName.dirty || LastName.touched)">Too short</div>
+                      <div class="form-text  text-danger" *ngIf="LastName.errors?.['pattern'] && (LastName.dirty || LastName.touched)">Only Alphabets</div>
+
+                      
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="row">
+                  <div class="col-md-6 mb-4 d-flex align-items-center">
+                    <div class="form-outline datepicker w-100">
+                      <h6><label for="birthdayDate" class="form-label">Birthday</label></h6>
+                      <input type="text" class="form-control " id="birthdayDate" formControlName="birthdayDate" />
+                      <div class="form-text text-danger" *ngIf="Birthday.errors?.['required']"></div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 mb-4">
+                    <h6 class="mb-2 pb-1">Gender: </h6>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender" formControlName="Gender"
+                        value="option1" checked />
+                      <label class="form-check-label" for="femaleGender">Female</label>
+                    </div>
+  
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender" formControlName="Gender"
+                        value="option2" />
+                      <label class="form-check-label" for="maleGender">Male</label>
+                    </div>
+                    <div class="form-text text-danger" *ngIf="Gender.errors?.['required'] "></div>
+                    </div>
+                </div>
+  
+                <div class="row">
+                  <div class="col-md-6 mb-4 pb-2">
+                    <div class="form-outline">
+                      <h6><label class="form-label" for="emailAddress">Email</label></h6>
+                      <input type="email" id="email"  formControlName="email" class="form-control " />
+                      <div class="form-text text-danger" *ngIf="Email.errors?.['required'] && (Email.dirty || Email.touched)">Email is required</div>
+                      <div class="form-text text-danger" *ngIf="Email.errors?.['email'] && (Email.dirty || Email.touched)">Email is Invalid</div>
+                      
+                    </div>
+  
+                  </div>
+                  <div class="col-md-6 mb-4 pb-2">
+                    <div class="form-outline">
+                      <h6><label class="form-label" for="phoneNumber">Phone Number</label></h6>
+                        <input type="tel" id="phoneNumber" formControlName="phoneNumber" class="form-control " />
+                        <div class="form-text text-danger" *ngIf="Phone.errors?.['required'] && (Phone.dirty || Phone.touched)">Phone is required</div>
+                        <div class="form-text text-danger" *ngIf="Phone.errors?.['minlenght'] && (Phone.dirty || Phone.touched)">Phone is Invalid</div>
+                        <div class="form-text text-danger" *ngIf="Phone.errors?.['maxlenght'] && (Phone.dirty || Phone.touched)">Phone is Invalid</div>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="row">
+                  <div class="col-12">
+                   <h6> <label class="form-label select-label">Choose your position </label></h6>
+                    <select  id="position" formControlName="position" class="select form-control">
+                      <option value="1">Student</option>
+                      <option value="2">Developper</option>
+                    </select>
+                    
+                  </div>
+                </div>
+  
+                <div class="mt-4 pt-2">
+                  <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
+                </div>
+  
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="header">
+        <h2>Add new Version </h2>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="content">
+         <ng-select class="champs" [(ngModel)]="select_dev" name="first" [multiple]="true">
+                <ng-option></ng-option>
+                <ng-option  *ngFor="let d of list_dev" [value]="d.username">{{d.username}}</ng-option>
+             </ng-select> 
+             
+        <div class="response">
+            <ngb-alert *ngIf="this.alert != ''" [dismissible]="false">
+               {{this.alert}}
+            </ngb-alert>
+        </div>
+
+    <mat-divider></mat-divider>
+    <div class="btns">
+        <button (click)="closeDialog()" type="button" class="btn btn-tertiary cancel" mdbRipple>Cancel</button>
+        <button (click)="onclick()" type="button" class="btn btn-primary confirm">Add</button>
+    </div>
+    </div>
+
+    <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+        <p style="color: white">Please Wait. </p>  
+    </ngx-spinner>
+</body>
+</html>
+
+

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,300&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300&display=swap" rel="stylesheet">
+    <title>Dashboard</title>
+</head>
+<body>
+    
+    <mat-sidenav-container>
+        <mat-sidenav #sidenav ="matSidenav">
+           <app-side-navbar></app-side-navbar>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <div class="content">
+               
+                <div class="header">
+                    <h1>Dashboard</h1>
+                </div>
+                <mat-divider></mat-divider>
+                <div class="item-card">
+                    <div class="card common">
+                        <h3>{{nombre_project}}</h3>
+                     <h4>Projects</h4>
+                    </div>
+                    <div class="card-2 common">
+                        <h3>{{nombre_user}}</h3>
+                        <h4>Users</h4>
+                    </div>
+                    <div class="card-3 common">
+                        <h3>{{nombre_dev}}</h3>
+                        <h4>Developers</h4>
+                    </div>
+                </div>
+                <div class="pie-style common-pie">
+                    <canvas id="myPie"></canvas>
+                </div>
+                <div class="bar-style common-pie">
+                    <canvas id="myBar"></canvas>
+                </div>
+                <div>
+                    <table class="tab">
+                    <thead>
+                        <tr>
+                            <th>projects</th>
+                            <th>Developers</th>
+                            
+                        </tr>
+                    </thead>
+            
+                    <tbody *ngFor="let projet of projects | filter:searchInput | paginate: {itemsPerPage : 4, currentPage: p}">
+                        <tr>
+                            <td>{{projet.nameProject}}</td>
+                            <td>
+                                <app-list-developer-dashboard [id_project]="projet.id"></app-list-developer-dashboard>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!--Pagination-->
+    <nav class="pagination" aria-label="Page navigation example">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </nav>
+                 </div>
+             </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container> 
+</body>
+</html>

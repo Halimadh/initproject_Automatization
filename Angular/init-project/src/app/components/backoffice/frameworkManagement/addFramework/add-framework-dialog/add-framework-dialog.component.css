@@ -1,0 +1,48 @@
+body{
+    width:430px;
+    height:auto;
+    box-shadow: 10px solid blue;
+    border: none;
+}
+
+.header {
+    padding:7px;
+    text-align: left;
+}
+
+mat-divider{
+    padding:2px;
+}
+.content .input{
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.content .btns{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding:7px;
+}
+
+.content .btns .confirm{
+    background-color: #009688;
+    border:none;
+    color:white;
+}
+
+.content .btns .cancel{
+    background-color: transparent;
+    color: #009688;
+    border:none;
+}
+
+ngb-alert{
+    background-color: transparent;
+    color: red;
+    margin-left:20px;
+    border:none;
+    font-size: 0.9em;
+}

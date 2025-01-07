@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,300&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300&display=swap" rel="stylesheet">
+    <title>See details</title>
+</head>
+<body>
+    
+    <mat-sidenav-container>
+        <mat-sidenav #sidenav ="matSidenav">
+           <app-side-navbar></app-side-navbar>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <div class="head">
+                <div class="menu">
+                    <button  class="btn-menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+                <div class="header">
+                    <h1>Details of {{this.username}}</h1>
+                    <div class="sub-head">
+                        <p>User ID: #{{this.id}} </p>
+                    </div>
+                </div>
+            </div>
+
+            <mat-divider></mat-divider>
+
+            <div class="content">
+
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>Projects</mat-card-title>
+                    <!-- <i (click)="onclickAddProject()" class=" add fa-solid fa-circle-plus"></i> -->
+                </mat-card-header>
+                <mat-card-content>
+
+                    <table class="projects-tab">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Repository</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr *ngFor="let project of projectList" >
+                                <td>{{project.id}}</td>
+                                <td>{{project.nameProject}}</td>
+                                <td>{{project.repository}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+            <p style="color: white">Please Wait. </p>  
+            </ngx-spinner>
+        </mat-sidenav-content>
+        
+    </mat-sidenav-container> 
+</body>
+</html>

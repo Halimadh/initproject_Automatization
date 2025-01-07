@@ -1,0 +1,128 @@
+/* html body{
+    background: #1b1f23; 
+    } */
+    html body{
+        background: #0a0624; 
+        }
+#home{
+    margin: 0 auto;
+    position: relative;
+
+}
+.title{
+    text-align: center;
+    color: aliceblue;
+    padding-top: 20px;
+    display:inline-flex;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    display: flex;
+}
+
+.logout{
+    background-color: #9e9e9e !important;
+    border: 1px solid #9e9e9e;
+    border-radius: 15px;
+    color: white;
+}
+
+.horizontale-line{
+    height:0px; 
+    width: 100%;
+    border-top: 1px solid white;
+    margin-right: 50px;
+    margin-left: 20px;
+    margin-bottom: 50px
+  
+}
+
+  .champs{
+    margin-bottom:50px ;
+  }
+
+/* .verticale-line{
+
+    height:77em; 
+    width:0px;
+    border: 1px solid rgb(183, 84, 8);
+   
+} */
+.first-container{
+    display: inline-block;
+    padding-left:10rem; 
+      
+   
+}
+.form-text{
+    margin-left:19em;
+    /* margin-bottom: 50px; */
+    
+}
+label{
+    font-size:20px;
+    color: aliceblue;
+
+}
+select{
+    height: 30px;
+    width: 250px;
+    }
+
+input{
+    background-color:transparent; 
+    border:none;
+    border-bottom: 2px solid white; 
+    width: 250px;
+    color:white;
+}
+.btn {
+    margin-right: 5.5rem;
+    margin-top: 1.9rem;
+
+}
+.class-btn{
+    padding-left: 30rem;
+}
+ 
+@media screen and (max-width: 1024)  {
+
+    .horizontale-line{
+        width: 95%;
+    }
+    
+    .champs{
+        display: inline-block;
+        position:absolute;
+        padding-left:10%;
+        margin-bottom: 10px;
+    }
+    .class-btn{
+        padding-left: 50%;
+    }
+}
+@media screen and (max-width: 392px)  {
+    .horizontale-line{
+        width: 85%;
+    }}
+
+
+    @media screen and (max-width: 1024px)  {
+        body{
+            width: fit-content;
+            height: fit-content;
+
+            background: #1b1f23; 
+        }
+        .class-btn{
+            padding-left: 50%;
+        }
+        }
+
+        mat-form-field input{
+            color: black;
+            height:0;
+        }

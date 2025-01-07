@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <mat-toolbar> <a class="navbar-brand mt-2 mt-lg-0" href="https://fleskconsulting.com/">
+            <img src="https://fleskconsulting.com/themes/demo/assets/images/img/Icon.svg" height="50" alt="MDB Logo"
+                loading="lazy" />
+        </a> </mat-toolbar>
+
+    <mat-sidenav-container>
+        <mat-sidenav mode="side" opened="true" class="mat-elevation-z8" #sidenav="matSidenav">
+            <app-navbar-user></app-navbar-user>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <div class=" content mat-elevation-z8">
+                <div class="edit_settings"><span>Edit settings project</span><br>
+                    <!-- <i class="fa-solid fa-file-pdf"></i> -->
+                </div>
+                <!-- <div class="lien"><span><a href="user/project">Projects</a>>{{nameProject}}</span></div> -->
+                <mat-divider></mat-divider>
+
+                <form #formhome="ngForm" class="form">
+                    <label>Statut project :</label>
+                    <div class="ns">
+                        <mat-form-field class="champs" appearance="fill">
+                            <!-- <mat-label>{{_statut}}</mat-label> -->
+                            <mat-select [(ngModel)]="_statut" name="statut" >
+                                <mat-option value="Active" >Active</mat-option>
+                                <mat-option value="in progress">in progress</mat-option>
+                                <mat-option value="stopped">stopped</mat-option>
+                                <mat-option value="finish">finish</mat-option>
+                                <mat-option value="delivered">delivered</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <button class="btn_update" (click)="updateStatutProject()" type="submit" mat-raised-button color="primary" href="#">
+                            Update statut</button>
+                            <i (click)="generatepdf()"  class=" pdf_elt fa-solid fa-file-pdf fa-beat"></i>
+                        <!-- <div class="" href=""> </div> -->
+                    </div>
+                    <label> Describe your project: <span style="color: red;">*</span></label>
+                    <div class="c_textarea" >
+                         <mat-form-field>
+                            <!-- <mat-label></mat-label> -->
+                       <textarea matInput  name="description" [(ngModel)]="_description" cols="35" rows="50"  placeholder="" 
+                                required></textarea>
+                        </mat-form-field>
+                        <button class="btn_describe" type="submit"  href="#" (click)="addDescrib()">
+                            Add</button>
+                    </div>
+                
+                    <div class="select-user">
+                       
+                        <div class="tabs">
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item" (click)="getDataSelection('developers')">
+                                    <a [class.active]="select=== 'developers'" class="nav-link active">Developers</a>
+                                </li>
+                                <li class="nav-item" (click)="getDataSelection('dependencies')">
+                                    <a [class.active]="select=== 'dependencies'" class="nav-link active">Dependencies</a>
+                                </li>
+                                <div class="btn-link">
+                                    <li >
+                                        <button class="addUser" (click)="onclickAddDeveloper()">
+                                            
+                                                <i class="fa-solid fa-user-plus"></i>
+                                                <span>Add developer</span>
+                                            
+                                        </button>
+                                    </li>
+                                    <li >
+                                        <button class="addUser" (click)="onclickAddDependency()">
+                                            
+                                                <i class="fa-solid fa-user-plus"></i>
+                                                <span>Add dependency</span>
+                                        
+                                        </button>
+                                    </li>
+                                </div>
+                                
+                            </ul>
+                        </div>
+                        <app-list-data-developer *ngIf="isDeveloper"  [data]="dataSelect_Developer" [id_project]="id_project" ></app-list-data-developer>
+                        <app-list-data *ngIf="!isDeveloper "  [data]="dataSelect_Dependency" [id_project]="id_project" #elseBlock></app-list-data>  
+                           
+
+                   
+                        <!-- <ng-select class="ns"
+                            [items]="cars" 
+                            bindLabel="name" 
+                            bindValue="id" 
+                            [(ngModel)]="selectedCar" name="second">
+                 </ng-select> -->
+
+                        <!-- <div class=" example-button-row btns">         
+                <button class="reset" type="submit" mat-raised-button color="primary"
+                  href="#">Reset</button>&nbsp;&nbsp; -->
+                        <!-- <button  class="generate" type="submit" (click)="generatorpdf()" mat-raised-button color="primary" href="#">Generate pdf</button>  -->
+                    </div>
+                </form>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+    <div class="footer">
+        <app-footer></app-footer>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,300&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300&display=swap" rel="stylesheet">
+    <title>framework Management</title>
+</head>
+<body>
+    
+    <mat-sidenav-container>
+        <mat-sidenav #sidenav ="matSidenav">
+           <app-side-navbar></app-side-navbar>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <div class="content">
+                <div class="menu">
+                    <button (click)="openSideBar()"   class="btn-menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+                <div class="header">
+                    <h1>Frameworks Management</h1>
+                    <!-- <button (click)="onclickAddFramework()" class="addFramework">
+                        <a>
+                            <i class="fa-solid fa-plus"></i>
+                            <span>Add Framework</span>
+                        </a>
+                    </button> -->
+                </div>
+                <mat-divider></mat-divider>
+
+                <div class="search">
+                    <input type="text" [(ngModel)]="searchInput" class="searchbar" placeholder="search framework"/>
+                    <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+                </div>
+
+                <mat-divider></mat-divider>
+
+                    <table class="users-tab">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Type</th> 
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr  *ngFor="let framework of frameworks | filter:searchInput | paginate: {itemsPerPage : 20, currentPage: p}">
+                                <td>{{framework.id}}</td>
+                                <td>{{framework.name}}</td>
+                                <td>{{framework.type}}</td>
+                                
+
+                                <div class="management">
+
+                                    <!-- <td class="btn">
+                                    <button (click)="onclickSeeVersions()" class="see" href="#">
+                                            <span>See Versions</span>
+                                            <i class="fa-sharp fa-regular fa-eye"></i>
+                                        </button> 
+                                    </td> -->
+
+                                    <!-- <td class="btn">
+                                        <button (click)="onclickDeleteFramework(framework.name)" class="delete" href="#">
+                                            <span>Delete</span>
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button> 
+                                    </td> -->
+                                </div>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!--Pagination-->
+                    <nav class="pagination" aria-label="Page navigation example">
+                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                    </nav>
+            </div>
+            <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+                <p style="color: white">Please Wait. </p>  
+            </ngx-spinner>
+
+        </mat-sidenav-content>
+    </mat-sidenav-container> 
+</body>
+</html>

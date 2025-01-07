@@ -1,0 +1,223 @@
+*{
+    padding:0;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Poppins', sans-serif;
+}
+
+mat-sidenav-container{
+    height:100%;
+}
+
+mat-sidenav{
+    background-color: #0a0624;
+    color: white;
+    text-align: left;
+    font-size: 1.03em;
+    width:200px;
+    border-radius:0 20px 20px 0;
+}
+
+mat-sidenav-content{
+    color: #424242;
+}
+
+.head .menu button {
+    display:none;
+    background: transparent;
+    margin-left:1.3rem;
+    margin-top: 1.3rem;
+    text-align:left;
+    color: #424242;
+    padding:0;
+    border:none;
+    font-size:1.3em;
+}   
+
+mat-divider{
+    margin:10px;
+    border-width: 2px;
+}
+
+.head .header h1{
+    margin:15px;
+    text-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+
+}
+
+.head .header p{
+    font-size:1em;
+    margin:15px;
+}
+
+.content{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top:2em;
+}
+
+mat-card{
+    width:40em;
+    height: 500px;
+}
+
+mat-card:nth-child(1){
+    margin-right:1.3em;
+}
+
+mat-card-header{
+    display:flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:1.2em;
+}
+
+mat-card-title {
+    font-size:1.3em;
+    font-weight: bold;
+    margin: 15px;
+    
+}
+
+
+.btns button{
+    border:none;
+    width:7em;
+    height:2em;
+    font-size:1.2em;
+    margin-left:1em;
+}
+
+.btns button a{
+    text-decoration: none;
+}
+
+.btns button span{
+    margin-left: 8px;
+    color:white;
+    margin-right:8px;
+}
+
+.btns button i{
+    color:white;
+}
+
+.btns .modify{
+    background-color: #cddc39;
+    color: white;
+}
+
+mat-card label{
+    padding-left:2em;
+    color: #424242;
+    text-align: left;
+    display: inline-block;
+    width: 250px;
+    font-weight: 600;
+}
+
+mat-card-actions .input{
+    color: black;
+    text-align: left;
+    width:23em;
+    display: inline-block;
+    max-width: 500px;
+}
+
+
+
+table{
+    border-collapse: collapse;
+    width: 95%;
+    text-align: center;
+    font-size: 1em;
+    margin:10px;
+    border:none;
+}
+
+table tr{
+    height:3em;
+    margin-bottom: 50px;
+}
+
+table tbody{
+    font-size:1.1em;
+}
+
+table tbody tr{
+    background-color: #f5f5f5;
+    border:none;
+    border: 1px solid #bdbdbd;
+}
+
+.delete{
+    color:red;
+    cursor: pointer;
+    font-size:1.1em;
+}
+
+.add{
+    color: green;
+    cursor: pointer;
+    font-size:1.1em;
+}
+
+@media only screen and (max-width: 582px) {
+    .header{
+        font-size:1.2em;
+    }
+}
+
+@media only screen and (max-width:925px){
+    .head .menu button{
+        display:block;
+    }   
+
+
+    .content{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    mat-card{
+        width:500px;
+        height:auto;
+        margin-bottom: 20px;
+
+    }
+    mat-card:nth-child(1){
+        margin-right:0;
+    }
+}
+
+@media only screen and (max-width:510px){
+    .head .menu button{
+        display:block;
+    }   
+
+    .header{
+        font-size:1em;
+    }
+
+    .content{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btns button{
+        font-size:1em;
+    }
+
+    mat-card{
+        width:350px;
+        height:auto;
+        margin-bottom: 20px;
+    }
+
+
+
+}

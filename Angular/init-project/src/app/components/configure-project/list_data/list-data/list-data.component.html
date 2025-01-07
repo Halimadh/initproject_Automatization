@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table class="users-tab">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Version</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr  *ngFor="let d of data | filter:searchInput | paginate: {itemsPerPage : 4, currentPage: p}">
+                <td>{{d.id}}</td>
+                <td>{{d.name}}</td>
+                <td>{{d.version}}</td>
+                <td>{{d.type}}</td>
+    
+                <div class="management"> 
+                    <td class="btn">
+                        <button class="modify" (click)="onclickModify(d.id,d.name,d.version,d.type)">
+                            <!-- <span>Modify</span> -->
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </button> 
+                    </td>
+
+                    <td class="btn">
+                        <button class="delete" (click)="onclickDelete(d.id)">
+                            <!-- <span>Delete</span> -->
+                            <i class="fa-solid fa-trash"></i>
+                        </button> 
+                    </td>
+                </div>
+            </tr>
+        </tbody>
+    </table>
+    <!--Pagination-->
+    <nav class="pagination" aria-label="Page navigation example">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </nav>
+    
+    <ngx-spinner *ngIf="this.spinner==true" bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+        <p style="color: white">Please Wait. </p>  
+    </ngx-spinner>
+</body>
+</html>

@@ -1,0 +1,63 @@
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+.header{
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header i{
+  cursor: pointer;
+}
+mat-stepper{
+  width: 500px;
+}
+
+::ng-deep .mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit{
+  background-color: #D54E1A;
+}
+.champs{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.champs input{
+  width: 100px;
+}
+.mat-stepper-vertical {
+    margin-top: 8px;
+  }
+  
+  .mat-mdc-form-field {
+    margin-top: 16px;
+  }
+  
+  .btns{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+  }
+  .action[disabled]{
+    opacity: 0.5 !important;
+    background-color: #D54E1A !important;
+    cursor: not-allowed !important;
+  }
+  
+  .next[disabled]{
+    opacity: 0.5;
+    background-color: transparent;
+    cursor: not-allowed !important;
+
+  }
+  .action{
+    font-weight: 500;
+    background-color:#D54E1A;
+    border:none;
+    color:white;
+  }
+
+  .next{
+    background-color: transparent;
+    border: solid 2px #D54E1A;
+    color: #D54E1A;
+  }

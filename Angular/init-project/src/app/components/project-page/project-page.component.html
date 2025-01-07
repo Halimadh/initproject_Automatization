@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <mat-toolbar> <a class="navbar-brand mt-2 mt-lg-0" href="https://fleskconsulting.com/">
+            <img src="https://fleskconsulting.com/themes/demo/assets/images/img/Icon.svg" height="50" alt="MDB Logo"
+                loading="lazy" />
+        </a> </mat-toolbar>
+
+    <mat-sidenav-container>
+        <mat-sidenav mode="side" opened="true" class="mat-elevation-z8"  #sidenav ="matSidenav">
+            <app-navbar-user></app-navbar-user>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <div class=" content mat-elevation-z8">
+                <div class="header">
+                    
+                    <button class="addproject">
+                        <a  href="testHome">
+                            <i class="fa-solid fa-plus"></i>
+                            <span>Add project</span>
+                        </a>
+                    </button>
+                    <div class="search">
+                        <input type="text" class="searchbar" placeholder="search" [(ngModel)]="searchInput"/>
+                        <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+                    </div>
+    
+                </div>
+                <mat-divider></mat-divider>
+                <table class="users-tab">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Name repository</th>
+                            <th>Creation date</th>
+                            <th>Statut</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr *ngFor="let project of projects| filter:searchInput | paginate: {itemsPerPage :4, currentPage: p}" >
+                            <td>{{project.id}}</td>
+                            <td>{{project.nameProject}}</td>
+                            <td>{{project.repository}}</td>
+                            <td>{{project.date}}</td>
+                            <td style="color:rgb(76, 0, 255);" *ngIf="project.statut=='Create'" >{{project.statut}}</td>
+                            <td style="color: orange;" *ngIf="project.statut=='in progress'||project.statut=='Active'" >{{project.statut}}</td>
+                            <td style="color:red;" *ngIf="project.statut=='stopped'" >{{project.statut}}</td>
+                            <td style="color:green;" *ngIf="project.statut=='finish'||project.statut=='delivered'" >{{project.statut}}</td>
+                            
+                            <!-- <table>
+                                <tbody>
+                                    <tr ng-repeat="x in data">
+                                    <td>
+                                    <span ng-if="x.time2 < x.time1 || x.time2 < x.time3" ng-style="{color: 'red'}" >{{x.val}}</span>
+                                    <span ng-if="x.time2 === x.time1 && x.time2 === x.time3" ng-style="{color: 'blue'}" >{{x.val}}</span>
+                                    </td>
+                                    </tr>
+                                </tbody>
+                            </table> -->
+
+                            <div class="management">
+
+                               <!-- <td class="btn">
+                                 <button (click)="run(project.nameProject,project.type)" class="run" href="#">
+                                        <span>run</span>
+                                    <i class="fa fa-clone" aria-hidden="true"></i>   
+                                    </button> 
+                                </td> -->
+                               
+                                <td class="btn">
+                                <button class="run" (click)="clickConfig(project.id,project.statut,project.description)" >
+                                   
+                                        <i class="fa fa-cog" aria-hidden="true"></i> 
+                                    
+                                    <!-- <span>Configuration</span> -->
+                                </button> 
+                               </td>
+                                <!-- <td class="btn">
+                                    <button  class="build" href="#">
+                                            <span>Build</span>
+                                          <i class="fa-sharp fa-regular fa-eye"></i> 
+                                        </button> 
+                                    </td> -->
+                                <td class="btn">
+                                    <button  class="clone" >
+                                        <a href="{{project.http_url_to_repo}}">
+                                            <span>gitlab</span>
+                                            <!-- <i class="fa-sharp fa-regular fa-eye"></i> -->
+                                        </a>
+                                            
+                                        </button> 
+                                    </td>
+
+                                <td class="btn">
+                                    <button class="delete" href="#" (click)="DeleteProject(project.nameProject)">
+                                        <!-- <span>Delete</span> -->
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button> 
+                                </td>
+                            </div>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!--Pagination-->
+                <nav class="pagination" aria-label="Page navigation example">
+                    <pagination-controls  (pageChange)="p = $event"></pagination-controls>
+                </nav>
+        </div>
+        <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+            <p style="color: white">Please Wait. </p>  
+        </ngx-spinner>
+
+        
+        </mat-sidenav-content>
+
+    </mat-sidenav-container>
+    <div class="footer">
+        <app-footer></app-footer>
+    </div>
+</body>
+
+</html>

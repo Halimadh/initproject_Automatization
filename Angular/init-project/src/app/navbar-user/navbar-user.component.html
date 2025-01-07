@@ -1,0 +1,59 @@
+ <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,300&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css"/>
+</head>
+<body>
+    <div class="side-content">
+        <!-- <button mat-button class="menu-button"> -->
+            <!-- <mat-icon>person</mat-icon> -->
+            <!-- <a href="user/project"><span>Projects</span></a> -->
+            <!-- <i class="fa-solid fa-user"></i> --> 
+        <!-- </button>  -->
+        <button mat-button color="white" class="menu-button">
+            <mat-icon>create</mat-icon>
+            <a href="testHome"><span>Create project</span></a>
+        </button>
+        <button mat-button class="menu-button">
+            <mat-icon>person</mat-icon>
+            <a href="profil"><span>Profile</span></a>
+        </button>
+        <button mat-button class="menu-button">
+            <mat-icon>list</mat-icon>
+            <a href="user/project"><span>Manage Projects</span></a>
+        </button>
+        <button mat-button class="menu-button">
+            <mat-icon>help</mat-icon>
+            <a href="user/project"><span>Help</span></a>
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-button class="menu-button" (click)="authService.logout()">
+            <mat-icon>logout</mat-icon>
+            <a href="">
+                <span>Log out</span></a>
+        </button>
+        <!-- <button mat-button class="menu-button">
+            <mat-icon>help</mat-icon>
+            <a href="">
+                <span>Help</span></a>
+        </button> -->
+
+        
+            <!-- <div class="logoutSection">
+                <div class="btn logout">
+                    <button (click)="authService.logout()" href="#" class="logout">
+                        <i class="fa-solid fa-rectangle-vertical-history"></i>
+                        <span> Log out </span>
+                    </button>
+                </div>
+            </div> -->
+    
+    </div>
+   
+</body>
+</html>
+
